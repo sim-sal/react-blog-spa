@@ -32,12 +32,25 @@
     list-style: none;
 }
 
-.navList>li>a {
+.navList div a {
+    width: 100px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
     color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
+    color: white;
 }
 
-.navList>li>a:hover {
-    color: rgb(14, 14, 53);
-    text-decoration: underline;
+.navList div a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.navList div a[class*="active"] {
+    border: 3px solid rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }

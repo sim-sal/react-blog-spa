@@ -1,21 +1,14 @@
+import { NavLink } from "react-router-dom";
 import style from "../css/modules/Header.module.css"
 
 const links = [
     {
         label: 'Home',
-        url: '#'
+        url: '/'
     },
     {
-        label: 'Post',
-        url: '#'
-    },
-    {
-        label: 'Chi Sono',
-        url: '#'
-    },
-    {
-        label: 'Contatti',
-        url: '#'
+        label: 'Blog',
+        url: '/blog'
     },
 ];
 
@@ -28,13 +21,13 @@ export default function Header() {
             </div>
 
             <div>
-                <ul className={style.navList}>
+                <div className={style.navList}>
                     {links.map((link, i) => (
-                        <li key={i}>
-                            <a href={link.url}>{link.label}</a>
-                        </li>
+                        <div key={i}>
+                            <NavLink to={link.url}>{link.label}</NavLink>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </div>
         </header>
     );

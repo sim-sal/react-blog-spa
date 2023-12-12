@@ -8,6 +8,11 @@
     justify-content: space-between;
 }
 
+.post_show {
+    color: black;
+    text-decoration: none;
+}
+
 .delete_button {
     background-color: rgb(119, 0, 0);
     color: white;
@@ -20,6 +25,11 @@
     box-shadow: 5px 15px 20px black;
     padding-right: 0 !important;
     padding-left: 0 !important;
+}
+
+.mod_card:hover {
+    box-shadow: 15px 35px 45px black;
+
 }
 
 .card_main {
