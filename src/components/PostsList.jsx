@@ -30,25 +30,20 @@ export default function PostsList() {
     }
 
     useEffect(() => {
-        if (!initialFetchDone) {
-            initialFetchDone = true;
-            fetchPosts();
-        }
+        fetchPosts()
     }, []);
 
     return (
         <div className={style.posts_list_container}>
             <div className={`row justify-content-center`}>
                 {posts.map((post) => (
-
-
-                    <div className={`card col-5 mx-5 my-5 ${style.mod_card}`}>
+                    <div key={post.slug} className={`card col-5 mx-5 my-5 ${style.mod_card}`}>
 
                         <img className={style.card_img} src={post.image ? post.image : "/image_not_found.jpg"} alt="Post" />
 
                         <div className={style.card_main}>
                             <div className={style.card_header}>
-                                <NavLink key={post.id} to={"/show-post"}>
+                                <NavLink to={"/posts/" + post.slug}>
                                     <button className={style.post_show}>
                                         <h3>{post.title}</h3>
                                     </button>
