@@ -41,44 +41,50 @@ export default function PostsList() {
             <div className={`row justify-content-center`}>
                 {posts.map((post) => (
 
-                    <NavLink key={post.id} to={"/show-post"} className={`col-5 mx-5 my-5 ${style.post_show}`}>
-                        <div className={`card ${style.mod_card}`}>
 
-                            <img className={style.card_img} src={post.image ? post.image : "/image_not_found.jpg"} alt="Post" />
+                    <div className={`card col-5 mx-5 my-5 ${style.mod_card}`}>
 
-                            <div className={style.card_main}>
-                                <div className={style.card_header}>
+                        <img className={style.card_img} src={post.image ? post.image : "/image_not_found.jpg"} alt="Post" />
 
-                                    <h3>{post.title}</h3>
-
-                                    <button className={style.delete_button} onClick={() => removePost(post.slug)}>
-                                        <FontAwesomeIcon icon="fa-solid fa-trash" />
+                        <div className={style.card_main}>
+                            <div className={style.card_header}>
+                                <NavLink key={post.id} to={"/show-post"}>
+                                    <button className={style.post_show}>
+                                        <h3>{post.title}</h3>
                                     </button>
+                                </NavLink>
 
-                                </div>
+                                <button
+                                    className={style.delete_button}
+                                    onClick={(e) => {
+                                        e.stopPropagation(); // Evita la propagazione dell'evento al componente NavLink
+                                        removePost(post.slug);
+                                    }}
+                                >
+                                    <FontAwesomeIcon icon="fa-solid fa-trash" />
+                                </button>
 
-                                <p>{post.content ? post.content : "Contenuto non disponibile"}</p>
+                            </div>
 
-                                <div>
-                                    <h5>Categoria:</h5>
-                                    <span>{post.category ? post.category.name : "Categoria non disponibile"}</span>
-                                </div>
+                            <p>{post.content ? post.content : "Contenuto non disponibile"}</p>
 
-                                <div>
-                                    <h5>Tag:</h5>
-                                    {post.tags ? (
-                                        post.tags.map((tag) => (
-                                            <span key={tag.id}>{tag.name} </span>
-                                        ))
-                                    ) : (
-                                        <span>Tags non disponibili</span>
-                                    )}
-                                </div>
+                            <div>
+                                <h5>Categoria:</h5>
+                                <span>{post.category ? post.category.name : "Categoria non disponibile"}</span>
+                            </div>
+
+                            <div>
+                                <h5>Tag:</h5>
+                                {post.tags ? (
+                                    post.tags.map((tag) => (
+                                        <span key={tag.id}>{tag.name} </span>
+                                    ))
+                                ) : (
+                                    <span>Tags non disponibili</span>
+                                )}
                             </div>
                         </div>
-                    </NavLink>
-
-
+                    </div>
                 ))}
             </div>
         </div>
