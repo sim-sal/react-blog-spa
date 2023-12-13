@@ -19,6 +19,11 @@ export default function ShowSinglePost() {
         fetchData();
     }, [])
 
+    function isImageUrl(imagePath) {
+        // Verifica se il percorso dell'immagine è definito e inizia con "http"
+        return imagePath && imagePath.startsWith('http');
+    }
+
     return (
         <>
             <button onClick={() => navigation(-1)}>Torna indietro</button>
@@ -27,7 +32,7 @@ export default function ShowSinglePost() {
                     <div className={`col-10 mt-5 mb-5`}>
                         <div className={`card col-10 mx-5 my-5`}>
 
-                            <img src={`/${post.image}`} alt="" />
+                            <img src={isImageUrl(post.image) ? post.image : `/${post.image}`} alt="" />
 
                             <div className={style.card_main}>
                                 <div className={style.card_header}>
