@@ -27,7 +27,7 @@ export default function ShowSinglePost() {
                     <div className={`col-10 mt-5 mb-5`}>
                         <div className={`card col-10 mx-5 my-5`}>
 
-                            <img src={post.image ? post.image : "/image_not_found.jpg"} alt="Post" />
+                            <img src={`/${post.image}`} alt="" />
 
                             <div className={style.card_main}>
                                 <div className={style.card_header}>

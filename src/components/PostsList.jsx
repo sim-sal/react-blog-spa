@@ -60,24 +60,6 @@ export default function PostsList() {
                                 </button>
 
                             </div>
-
-                            <p>{post.content ? post.content : "Contenuto non disponibile"}</p>
-
-                            <div>
-                                <h5>Categoria:</h5>
-                                <span>{post.category ? post.category.name : "Categoria non disponibile"}</span>
-                            </div>
-
-                            <div>
-                                <h5>Tag:</h5>
-                                {post.tags ? (
-                                    post.tags.map((tag) => (
-                                        <span key={tag.id}>{tag.name} </span>
-                                    ))
-                                ) : (
-                                    <span>Tags non disponibili</span>
-                                )}
-                            </div>
                         </div>
                     </div>
                 ))}
